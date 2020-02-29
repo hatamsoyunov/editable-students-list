@@ -5,4 +5,4 @@ My first TypeScript (React, Redux) practice app
 - React Hooks
 - Redux Hooks
 
-👉 http://dev.hattam.ru/reactjs/editable-students-list
+👉 https://editable-students-list.hattam.ru/
