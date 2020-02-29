@@ -47,19 +47,19 @@ const StudentForm: React.FC<Props> = ({
 	return (
 		<TableRow>
 			<TableCell>
-				<TextField className="input-wrap" label="ФИО" required value={name} onChange={handleNameChange} />
+				<TextField label="ФИО" value={name} onChange={handleNameChange} fullWidth required />
 			</TableCell>
 			<TableCell>
 				<MuiPickersUtilsProvider utils={DateFnsUtils} locale={ruLocale}>
 					<KeyboardDatePicker
 						views={['year', 'month', 'date']}
 						openTo="year"
-						required
 						format="dd.MM.yyyy"
 						label="Дата рождения"
 						value={birthDay}
 						onChange={handleBirthDayChange}
-						className="input-wrap"
+						fullWidth
+						required
 					/>
 				</MuiPickersUtilsProvider>
 			</TableCell>
@@ -67,10 +67,11 @@ const StudentForm: React.FC<Props> = ({
 				<TextField
 					select
 					label="Успеваемость"
-					required
 					className="input-wrap"
 					value={progress}
 					onChange={handleProgressChange}
+					fullWidth
+					required
 				>
 					{progressList.map((progress: IProgressList) => (
 						<MenuItem key={progress.id} value={progress.id}>
