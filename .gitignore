@@ -13,6 +13,7 @@
 
 #temp
 /temp
+/.vscode
 
 # misc
 .DS_Store
