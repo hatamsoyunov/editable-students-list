@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { CssBaseline, AppBar, Container, Button, Grid, Toolbar, Typography } from '@material-ui/core';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+
+import { addNewForm } from './actions/StudentsActions';
+import StudentsTable from './components/StudentsTable';
+import './App.sass';
+
+const App: React.FC = () => {
+	const dispatch = useDispatch();
+
+	return (
+		<>
+			<CssBaseline />
+			<AppBar position="relative">
+				<Container maxWidth="md">
+					<Toolbar disableGutters={true}>
+						<Typography variant="h6">Students list app - TypeScript + React + Redux</Typography>
+					</Toolbar>
+				</Container>
+			</AppBar>
+
+			<Container maxWidth="md">
+				<Grid container justify="space-between" alignItems="center">
+					<Grid item>
+						<h2>Таблица студентов</h2>
+					</Grid>
+					<Grid item>
+						<Button
+							variant="contained"
+							color="primary"
+							startIcon={<AddCircleIcon />}
+							title="Добавить нового студента"
+							onClick={() => dispatch(addNewForm())}
+						>
+							Добавить
+						</Button>
+					</Grid>
+				</Grid>
+
+				<StudentsTable />
+			</Container>
+		</>
+	);
+};
 
 export default App;
