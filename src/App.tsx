@@ -1,15 +1,18 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CssBaseline, AppBar, Container, Button, Grid, Toolbar, Typography } from '@material-ui/core';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
+import { IStudentsState } from './interfaces';
 import { addNewForm } from './actions/StudentsActions';
 import StudentsTable from './components/StudentsTable';
 import './App.sass';
 
 const App: React.FC = () => {
 	const dispatch = useDispatch();
+	const editForm = useSelector((state: IStudentsState) => state.editForm);
+	const addBtnClass = editForm ? 'disabled' : '';
 
 	return (
 		<>
@@ -29,6 +32,7 @@ const App: React.FC = () => {
 					</Grid>
 					<Grid item>
 						<Button
+							className={addBtnClass}
 							variant="contained"
 							color="primary"
 							startIcon={<AddCircleIcon />}

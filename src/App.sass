@@ -8,6 +8,25 @@ h2
 	font-weight: 500
 
 
+// Button
+.MuiButton-root
+	&.disabled
+		opacity: 0.6
+		pointer-events: none
+
+
+// List
+.MuiTableRow-root
+	transition: all .4s ease
+	&.disabled
+		opacity: 0.3
+		pointer-events: none
+
+.empty
+	td
+		padding: 50px 16px
+
+
 // Col sizes
 .table-col-1
 	width: 37%
@@ -26,14 +45,3 @@ h2
 .input-wrap
 	width: 100%
 
-
-// List
-.MuiTableRow-root
-	transition: all .4s ease
-	&.disabled
-		opacity: 0.3
-		pointer-events: none
-
-.empty
-	td
-		padding: 50px 16px

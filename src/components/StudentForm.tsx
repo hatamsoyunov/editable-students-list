@@ -4,6 +4,7 @@ import { TextField, MenuItem, TableRow, TableCell, IconButton } from '@material-
 import CloseIcon from '@material-ui/icons/Close';
 import DoneIcon from '@material-ui/icons/Done';
 import DateFnsUtils from '@date-io/date-fns';
+import ruLocale from 'date-fns/locale/ru';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 import progressList from '../utils/progressList';
@@ -49,7 +50,7 @@ const StudentForm: React.FC<Props> = ({
 				<TextField className="input-wrap" label="ФИО" required value={name} onChange={handleNameChange} />
 			</TableCell>
 			<TableCell>
-				<MuiPickersUtilsProvider utils={DateFnsUtils}>
+				<MuiPickersUtilsProvider utils={DateFnsUtils} locale={ruLocale}>
 					<KeyboardDatePicker
 						views={['year', 'month', 'date']}
 						openTo="year"
