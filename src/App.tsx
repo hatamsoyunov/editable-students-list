@@ -17,7 +17,7 @@ const App: React.FC = () => {
 			<AppBar position="relative">
 				<Container maxWidth="md">
 					<Toolbar disableGutters={true}>
-						<Typography variant="h6">Students list app - TypeScript + React + Redux</Typography>
+						<Typography variant="h6">Editable students list - TypeScript + React + Redux</Typography>
 					</Toolbar>
 				</Container>
 			</AppBar>
