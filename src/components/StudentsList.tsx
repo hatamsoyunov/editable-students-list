@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { IStudent, IStudentsState, Order, Data } from '../interfaces';
+import { IStudent, IStudentsState, Order, IStudentBase } from '../interfaces';
 
 import StudentItem from './StudentItem';
 
@@ -38,7 +38,7 @@ function stableSort<T>(array: T[], comparator: (a: T, b: T) => number) {
 // Component
 interface Props {
 	order: Order;
-	orderBy: keyof Data;
+	orderBy: keyof IStudentBase;
 }
 
 const StudentsList: React.FC<Props> = props => {

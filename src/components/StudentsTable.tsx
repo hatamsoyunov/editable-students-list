@@ -11,7 +11,7 @@ import {
 	TableSortLabel
 } from '@material-ui/core';
 
-import { IStudent, IStudentsState, HeadCell, Order, Data, EnhancedTableProps } from '../interfaces';
+import { IStudent, IStudentsState, HeadCell, Order, EnhancedTableProps, IStudentBase } from '../interfaces';
 import { addStudent, setSort } from '../actions/StudentsActions';
 import { defaultStudents } from '../utils/defaultStudents';
 
@@ -29,7 +29,7 @@ const headCells: HeadCell[] = [
 // Children table head component
 const EnhancedTableHead: React.FC<EnhancedTableProps> = props => {
 	const { order, orderBy, onRequestSort } = props;
-	const createSortHandler = (property: keyof Data) => (event: React.MouseEvent) => {
+	const createSortHandler = (property: keyof IStudentBase) => (event: React.MouseEvent) => {
 		onRequestSort(event, property);
 	};
 
@@ -66,7 +66,7 @@ const StudentsTable: React.FC = () => {
 	const orderBy = useSelector((state: IStudentsState) => state.orderBy);
 
 	const addStudentAction = (data: IStudent[]) => dispatch(addStudent(data));
-	const setSortAction = (order: Order, orderBy: keyof Data) => dispatch(setSort(order, orderBy));
+	const setSortAction = (order: Order, orderBy: keyof IStudentBase) => dispatch(setSort(order, orderBy));
 
 	const tableRowForm = newForm ? <NewFormContainer /> : null;
 	const studentsList =
@@ -83,7 +83,7 @@ const StudentsTable: React.FC = () => {
 		localStorage.setItem('students', JSON.stringify(students));
 	}, [students]);
 
-	const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
+	const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof IStudentBase) => {
 		const isAsc = orderBy === property && order === 'asc';
 		setSortAction(isAsc ? 'desc' : 'asc', property);
 	};

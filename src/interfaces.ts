@@ -1,17 +1,23 @@
-export interface IStudent {
-	id: string;
+export interface IStudentBase {
 	name: string;
 	birthDay: string;
 	progress: number;
+}
+
+export interface IStudent extends IStudentBase {
+	id: string;
+	name: string;
 	editing: boolean;
 }
+
+export type Order = 'asc' | 'desc';
 
 export interface IStudentsState {
 	students: IStudent[];
 	newForm?: boolean;
 	editForm?: boolean;
 	order: Order;
-	orderBy: keyof Data;
+	orderBy: keyof IStudentBase;
 }
 
 export interface IReducerAction {
@@ -24,21 +30,13 @@ export interface IProgressList {
 	label: string;
 }
 
-export interface Data {
-	name: string;
-	birthDay: string;
-	progress: number;
-}
-
-export type Order = 'asc' | 'desc';
-
 export interface HeadCell {
-	id: 'name' | 'birthDay' | 'progress';
+	id: keyof IStudentBase;
 	label: string;
 }
 
 export interface EnhancedTableProps {
-	onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
+	onRequestSort: (event: React.MouseEvent<unknown>, property: keyof IStudentBase) => void;
 	order: Order;
 	orderBy: string;
 }

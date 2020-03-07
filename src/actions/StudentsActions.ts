@@ -1,4 +1,4 @@
-import { IStudent, Order, Data } from '../interfaces';
+import { IStudent, Order, IStudentBase } from '../interfaces';
 
 export const addNewForm = () => ({
 	type: 'ADD_NEW_FORM'
@@ -33,7 +33,7 @@ export const removeStudent = (students: IStudent[]) => ({
 	payload: students
 });
 
-export const setSort = (order: Order, orderBy: keyof Data) => ({
+export const setSort = (order: Order, orderBy: keyof IStudentBase) => ({
 	type: 'SET_SORT',
 	payload: {
 		order,
