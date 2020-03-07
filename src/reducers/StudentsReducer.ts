@@ -3,11 +3,13 @@ import { IStudentsState, IReducerAction } from '../interfaces';
 const initialState: IStudentsState = {
 	students: [],
 	newForm: false,
-	editForm: false
+	editForm: false,
+	order: 'asc',
+	orderBy: 'name'
 };
 
 const reducer = (state: IStudentsState = initialState, action: IReducerAction) => {
-	console.log(action);
+	// console.log(action);
 
 	switch (action.type) {
 		case 'ADD_NEW_FORM':
@@ -24,6 +26,7 @@ const reducer = (state: IStudentsState = initialState, action: IReducerAction) =
 
 		case 'ADD_STUDENT':
 			return {
+				...state,
 				students: action.payload,
 				newForm: false
 			};
@@ -53,6 +56,13 @@ const reducer = (state: IStudentsState = initialState, action: IReducerAction) =
 			return {
 				...state,
 				students: action.payload
+			};
+
+		case 'SET_SORT':
+			return {
+				...state,
+				order: action.payload.order,
+				orderBy: action.payload.orderBy
 			};
 
 		default:
