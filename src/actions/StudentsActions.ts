@@ -1,42 +1,42 @@
 import { IStudent, Order, IStudentBase } from '../interfaces';
 
 export const addNewForm = () => ({
-	type: 'ADD_NEW_FORM'
+    type: 'ADD_NEW_FORM',
 });
 
 export const cancelNewForm = {
-	type: 'CANCEL_NEW_FORM'
+    type: 'CANCEL_NEW_FORM',
 };
 
 export const cancelForm = (students: IStudent[]) => ({
-	type: 'CANCEL_FORM',
-	payload: students
+    type: 'CANCEL_FORM',
+    payload: students,
 });
 
 export const addStudent = (students: IStudent[]) => ({
-	type: 'ADD_STUDENT',
-	payload: students
+    type: 'ADD_STUDENT',
+    payload: students,
 });
 
 export const editStudent = (students: IStudent[]) => ({
-	type: 'EDIT_STUDENT',
-	payload: students
+    type: 'EDIT_STUDENT',
+    payload: students,
 });
 
 export const saveStudent = (students: IStudent[]) => ({
-	type: 'SAVE_STUDENT',
-	payload: students
+    type: 'SAVE_STUDENT',
+    payload: students,
 });
 
 export const removeStudent = (students: IStudent[]) => ({
-	type: 'REMOVE_STUDENT',
-	payload: students
+    type: 'REMOVE_STUDENT',
+    payload: students,
 });
 
 export const setSort = (order: Order, orderBy: keyof IStudentBase) => ({
-	type: 'SET_SORT',
-	payload: {
-		order,
-		orderBy
-	}
+    type: 'SET_SORT',
+    payload: {
+        order,
+        orderBy,
+    },
 });

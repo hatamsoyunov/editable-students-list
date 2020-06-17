@@ -10,8 +10,8 @@ import App from './App';
 const store = createStore(StudentsReducer);
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById('root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'),
 );
